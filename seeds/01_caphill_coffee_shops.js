@@ -165,7 +165,7 @@ exports.seed = async function (knex) {
       {
         id: 7,
         name: "The Network Coffee House",
-        img: "ttps://lh3.googleusercontent.com/p/AF1QipOjXcqSD86Qu9EFixccXDTJJF9C4-tRp1H1Gs_y=s1360-w1360-h1020",
+        img: "https://lh3.googleusercontent.com/p/AF1QipOjXcqSD86Qu9EFixccXDTJJF9C4-tRp1H1Gs_y=s1360-w1360-h1020",
         address: "1402 Pearl St, Denver, CO 80203",
         hours: {
           Monday: "6:00am - 9:00pm",

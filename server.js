@@ -39,34 +39,71 @@ app.get('/', (request, response) => {
 //api/v1/pathdata/coffeeshops:id
 
 app.post('/SelectedShop/:id', async (request, response) => {
+  const { ratingKey } = request.body;
+  const { id } = request.params; // Get the ID from the URL parameters. Took out of request body. 
+
+  // Validate the ratingKey sent in the body
+  if (!['thumbsUp', 'thumbsDown'].includes(ratingKey)) {
+    return response.status(400).json({ error: 'Invalid rating key' });
+  }
+
   try {
-    // const { id } = request.params;
-    const { ratingKey, id } = request.body;
-
-    // Retrieve the coffee shop object by ID from the database
-    const coffeeShop = await knex('caphill_coffee_shops').where({ id: id }).first();
-
+    // Find the coffee shop by ID
+    const coffeeShop = await database('caphill_coffee_shops').where({ id }).first();
     if (!coffeeShop) {
       return response.status(404).json({ error: 'Coffee shop not found' });
     }
 
-    // Check if the specified rating key is valid
-    if (ratingKey !== 'thumbsUp' && ratingKey !== 'thumbsDown') {
-      return response.status(400).json({ error: 'Invalid rating key' });
-    }
+    // Update the rating count for thumbsUp or thumbsDown
+    const updatedRating = coffeeShop.rating[ratingKey] + 1;
+    const updateResult = await database('caphill_coffee_shops')
+      .where({ id })
+      .update({
+        rating: {
+          ...coffeeShop.rating,
+          [ratingKey]: updatedRating
+        }
+      }, ['id', 'rating']);
 
-    // Increment the specified rating key
-    coffeeShop.rating[ratingKey] += 1;
+    // Send back the updated coffee shop data
+    console.log("Server Response:", updateResult);
 
-    // Update the object in the database
-    await knex('caphill_coffee_shops').where({ id: id }).update({ rating: coffeeShop.rating });
-
-    response.json(coffeeShop);
+    response.json(updateResult[0]);
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error updating coffee shop rating:', error);
     response.status(500).json({ error: 'Internal server error' });
   }
 });
+
+// app.post('/SelectedShop/:id', async (request, response) => {
+//   try {
+//     const { id } = request.params;
+//     const { ratingKey } = request.body;
+
+//     // Retrieve the coffee shop object by ID from the database
+//     const coffeeShop = await knex('caphill_coffee_shops').where( "id", id ).first();
+
+//     if (!coffeeShop) {
+//       return response.status(404).json({ error: 'Coffee shop not found' });
+//     }
+
+//     // Check if the specified rating key is valid
+//     if (ratingKey !== 'thumbsUp' && ratingKey !== 'thumbsDown') {
+//       return response.status(400).json({ error: 'Invalid rating key' });
+//     }
+
+//     // Increment the specified rating key
+//     coffeeShop.rating[ratingKey] += 1;
+
+//     // Update the object in the database
+//     await knex('caphill_coffee_shops').where( "id", id ).update({ rating: coffeeShop.rating });
+
+//     response.json(coffeeShop);
+//   } catch (error) {
+//     console.error('Error:', error);
+//     response.status(500).json({ error: 'Internal server error' });
+//   }
+// });
 
 // app.post('/api/v1/pathData/:id', (request, response) => {
 //   const params = request.body;
@@ -84,8 +121,8 @@ app.post('/SelectedShop/:id', async (request, response) => {
 //     //   {rating: params.rating
 //     //   }, ['id', 'rating'],
 // })
-//figure out how to send the correct response
-//google how to make it more dynamic to update whatever keys we are given in the object. 
+// figure out how to send the correct response
+// google how to make it more dynamic to update whatever keys we are given in the object. 
 
 
 //routes
