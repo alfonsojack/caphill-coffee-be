@@ -27,7 +27,10 @@ exports.seed = async function (knex) {
         takeOut: true,
         wheelchairAccessible: true,
         contactlessPay: null,
-        rating: null,
+        rating: {
+          thumbsUp: 1,
+          thumbsDown: 0,
+        },
       },
       {
         id: 2,
@@ -50,7 +53,10 @@ exports.seed = async function (knex) {
         takeOut: true,
         wheelchairAccessible: true,
         contactlessPay: null,
-        rating: null,
+        rating: {
+          thumbsUp: 3,
+          thumbsDown: 4,
+        },
       },
       {
         id: 3,
@@ -73,7 +79,10 @@ exports.seed = async function (knex) {
         takeOut: true,
         wheelchairAccessible: true,
         contactlessPay: null,
-        rating: null,
+        rating: {
+          thumbsUp: 1,
+          thumbsDown: 3,
+        },
       },
       {
         id: 4,
@@ -96,7 +105,10 @@ exports.seed = async function (knex) {
         takeOut: true,
         wheelchairAccessible: true,
         contactlessPay: null,
-        rating: null,
+        rating: {
+          thumbsUp: 1,
+          thumbsDown: 0,
+        },
       },
       {
         id: 5,
@@ -119,7 +131,10 @@ exports.seed = async function (knex) {
         takeOut: true,
         wheelchairAccessible: true,
         contactlessPay: null,
-        rating: null,
+        rating: {
+          thumbsUp: 1,
+          thumbsDown: 0,
+        },
       },
       {
         id: 6,
@@ -142,12 +157,15 @@ exports.seed = async function (knex) {
         takeOut: true,
         wheelchairAccessible: true,
         contactlessPay: null,
-        rating: null,
+        rating: {
+          thumbsUp: 1,
+          thumbsDown: 0,
+        },
       },
       {
         id: 7,
         name: "The Network Coffee House",
-        img: "ttps://lh3.googleusercontent.com/p/AF1QipOjXcqSD86Qu9EFixccXDTJJF9C4-tRp1H1Gs_y=s1360-w1360-h1020",
+        img: "https://lh3.googleusercontent.com/p/AF1QipOjXcqSD86Qu9EFixccXDTJJF9C4-tRp1H1Gs_y=s1360-w1360-h1020",
         address: "1402 Pearl St, Denver, CO 80203",
         hours: {
           Monday: "6:00am - 9:00pm",
@@ -165,7 +183,10 @@ exports.seed = async function (knex) {
         takeOut: true,
         wheelchairAccessible: true,
         contactlessPay: null,
-        rating: null,
+        rating: {
+          thumbsUp: 1,
+          thumbsDown: 0,
+        },
       },
       {
         id: 8,
@@ -188,7 +209,10 @@ exports.seed = async function (knex) {
         takeOut: true,
         wheelchairAccessible: true,
         contactlessPay: null,
-        rating: null,
+        rating: {
+          thumbsUp: 1,
+          thumbsDown: 0,
+        },
       },
     ],
   );
