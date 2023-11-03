@@ -38,15 +38,52 @@ app.get('/', (request, response) => {
 //do an app.post here --> tell it which route to hit
 //api/v1/pathdata/coffeeshops:id
 
-app.post('/api/v1/pathData/:id', (request, response) => {
-  const params = request.body;
-  knex('coffee_shop_data')
-    .where({ id: params.id })
-    .update(
-      {rating: params.rating
-      }, ['id', 'rating'],
-    )
-})
+app.post('/SelectedShop/:id', async (request, response) => {
+  try {
+    // const { id } = request.params;
+    const { ratingKey, id } = request.body;
+
+    // Retrieve the coffee shop object by ID from the database
+    const coffeeShop = await knex('caphill_coffee_shops').where({ id: id }).first();
+
+    if (!coffeeShop) {
+      return response.status(404).json({ error: 'Coffee shop not found' });
+    }
+
+    // Check if the specified rating key is valid
+    if (ratingKey !== 'thumbsUp' && ratingKey !== 'thumbsDown') {
+      return response.status(400).json({ error: 'Invalid rating key' });
+    }
+
+    // Increment the specified rating key
+    coffeeShop.rating[ratingKey] += 1;
+
+    // Update the object in the database
+    await knex('caphill_coffee_shops').where({ id: id }).update({ rating: coffeeShop.rating });
+
+    response.json(coffeeShop);
+  } catch (error) {
+    console.error('Error:', error);
+    response.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// app.post('/api/v1/pathData/:id', (request, response) => {
+//   const params = request.body;
+//   knex('coffee_shop_data')
+//     .where({ id: params.id })
+//     .increment('rating: thumbsUp', 1)
+//       .returning(['id', 'rating'])
+//       .then((updatedRows) => {
+//         response.json(updatedRows)
+//       })
+//       .catch((error) => {
+//         response.status(500).json({ error: 'database update failed'})
+//       })
+//     // .update(
+//     //   {rating: params.rating
+//     //   }, ['id', 'rating'],
+// })
 //figure out how to send the correct response
 //google how to make it more dynamic to update whatever keys we are given in the object. 
 

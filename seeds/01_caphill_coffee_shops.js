@@ -27,7 +27,10 @@ exports.seed = async function (knex) {
         takeOut: true,
         wheelchairAccessible: true,
         contactlessPay: null,
-        rating: null,
+        rating: {
+          thumbsUp: 1,
+          thumbsDown: 0,
+        },
       },
       {
         id: 2,
@@ -50,7 +53,10 @@ exports.seed = async function (knex) {
         takeOut: true,
         wheelchairAccessible: true,
         contactlessPay: null,
-        rating: null,
+        rating: {
+          thumbsUp: 3,
+          thumbsDown: 4,
+        },
       },
       {
         id: 3,
@@ -73,7 +79,10 @@ exports.seed = async function (knex) {
         takeOut: true,
         wheelchairAccessible: true,
         contactlessPay: null,
-        rating: null,
+        rating: {
+          thumbsUp: 1,
+          thumbsDown: 3,
+        },
       },
       {
         id: 4,
@@ -96,7 +105,10 @@ exports.seed = async function (knex) {
         takeOut: true,
         wheelchairAccessible: true,
         contactlessPay: null,
-        rating: null,
+        rating: {
+          thumbsUp: 1,
+          thumbsDown: 0,
+        },
       },
       {
         id: 5,
@@ -119,7 +131,10 @@ exports.seed = async function (knex) {
         takeOut: true,
         wheelchairAccessible: true,
         contactlessPay: null,
-        rating: null,
+        rating: {
+          thumbsUp: 1,
+          thumbsDown: 0,
+        },
       },
       {
         id: 6,
@@ -142,7 +157,10 @@ exports.seed = async function (knex) {
         takeOut: true,
         wheelchairAccessible: true,
         contactlessPay: null,
-        rating: null,
+        rating: {
+          thumbsUp: 1,
+          thumbsDown: 0,
+        },
       },
       {
         id: 7,
@@ -165,7 +183,10 @@ exports.seed = async function (knex) {
         takeOut: true,
         wheelchairAccessible: true,
         contactlessPay: null,
-        rating: null,
+        rating: {
+          thumbsUp: 1,
+          thumbsDown: 0,
+        },
       },
       {
         id: 8,
@@ -188,7 +209,10 @@ exports.seed = async function (knex) {
         takeOut: true,
         wheelchairAccessible: true,
         contactlessPay: null,
-        rating: null,
+        rating: {
+          thumbsUp: 1,
+          thumbsDown: 0,
+        },
       },
     ],
   );
