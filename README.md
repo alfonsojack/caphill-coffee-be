@@ -8,10 +8,10 @@ This app is the back-end server for [Caphill-Coffee](https://github.com/alfonsoj
 - In your terminal `git clone <ssh>`
 2. Change into the new directory
 - `cd` into the repo
-Install the dependencies
-run `npm i` 
-Start the server
-run `nodemon server.js`
+3. Install the dependencies
+- run `npm i` 
+4. Start the server
+- run `nodemon server.js`
 
 ## ENDPOINTS
 The server should be running locally at http://localhost:3001.
