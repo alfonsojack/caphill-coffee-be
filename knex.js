@@ -4,3 +4,4 @@ const environment = process.env.NODE_ENV;
 const knexConfig = config[environment];
 
 module.exports = knex(knexConfig);
+

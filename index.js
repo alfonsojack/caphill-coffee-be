@@ -17,9 +17,13 @@ app.use(express.json());
 //don't need async
 //fix this
 
+// app.get('/', (request, response) => {
+//   queries.getAll().then(results => response.send(results))
+// })
+
 app.get('/', (request, response) => {
-  queries.getAll().then(results => response.send(results))
-})
+  response.send('Oh hey cofffe shop');
+});
 
 
 // app.get('/api/v1/pathData', (request, response) => {
