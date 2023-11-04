@@ -25,6 +25,10 @@ app.get('/', (request, response) => {
   response.send('Oh hey cofffe shop');
 });
 
+app.get('/api/v1/debug', async (request, response) => {
+  const result = process.env;
+  response.status(200).json(result);
+});
 
 // app.get('/api/v1/pathData', (request, response) => {
 //   const pathData = database.select().from('coffee_shop_data')
