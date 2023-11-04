@@ -1,4 +1,3 @@
-
 # CAPHILL COFFEE BE
 
 This app is the back-end server for [Caphill-Coffee](https://github.com/alfonsojack/caphill-coffee) 
