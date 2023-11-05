@@ -6,13 +6,17 @@ const config = require('./knexfile')[process.env.NODE_ENV || 'development']
 const database = knex(config)
 const queries = require('./queries')
 
-app.set('port', 3001)
+if(process.env.NODE_ENV && process.env.NODE_ENV === 'development'){
+  app.set('port', 3001)
+}
 app.use(cors())
 
 app.use(express.json());
+console.log(config)
 
 
 app.get('/', (request, response) => {
+  console.log(request)
   queries.getAll().then(results => response.send(results))
 })
 
