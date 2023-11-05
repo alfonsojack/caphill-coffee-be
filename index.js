@@ -10,7 +10,6 @@ if (process.env.NODE_ENV && process.env.NODE_ENV === "development") {
   app.set("port", 3001);
 }
 
-
 const corsOptions = {
   origin: [
     "http://localhost:3000",
@@ -19,15 +18,15 @@ const corsOptions = {
   optionsSucessStatus: 200,
   methods: "GET, POST, OPTIONS",
 };
-app.use(cors(corsOptions));
-//when you make a request, it will allow them. 
+app.use(cors());
+//when you make a request, it will allow them.
 //I will allow get and post methods from localhost 3000.
-//preflight request: request that gets made to the server, but will use the options method. Will allow the response to return a 200. 
+//preflight request: request that gets made to the server, but will use the options method. Will allow the response to return a 200.
 
 app.use(express.json());
 console.log(config);
 
-app.options('/*', (_, res) => {
+app.options("/*", (_, res) => {
   res.sendStatus(200);
 });
 //add this, wildcard, ALWAYS return 200 when you make an options request
