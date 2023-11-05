@@ -26,9 +26,9 @@ const corsOptions = {
 app.use(express.json());
 console.log(config);
 
-// app.options("/*", (_, res) => {
-//   res.sendStatus(200);
-// });
+app.options("/*", (_, res) => {
+  res.sendStatus(200);
+});
 //add this, wildcard, ALWAYS return 200 when you make an options request
 
 app.get("/", (request, response) => {
