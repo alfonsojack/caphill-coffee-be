@@ -10,15 +10,15 @@ if (process.env.NODE_ENV && process.env.NODE_ENV === "development") {
   app.set("port", 3001);
 }
 
-const corsOptions = {
-  origin: [
-    "http://localhost:3000",
-    "https://caphill-coffee-4vmxl9l43-jack-alfonsos-projects.vercel.app",
-  ],
-  optionsSucessStatus: 200,
-  methods: "GET, POST, OPTIONS",
-};
-// app.use(cors());
+// const corsOptions = {
+//   origin: [
+//     "http://localhost:3000",
+//     "https://caphill-coffee-4vmxl9l43-jack-alfonsos-projects.vercel.app",
+//   ],
+//   optionsSucessStatus: 200,
+//   methods: "GET, POST, OPTIONS",
+// };
+app.use(cors());
 //when you make a request, it will allow them.
 //I will allow get and post methods from localhost 3000.
 //preflight request: request that gets made to the server, but will use the options method. Will allow the response to return a 200.
