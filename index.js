@@ -12,10 +12,12 @@ if(process.env.NODE_ENV && process.env.NODE_ENV === 'development'){
 // app.use(cors());
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: ["http://localhost:3000", "https://caphill-coffee-4vmxl9l43-jack-alfonsos-projects.vercel.app"],
   optionsSucessStatus: 200,
   methods: "GET, POST"
 }
+
+//I will allow get and post methods from localhost 3000. 
 
 app.use(express.json());
 console.log(config)
