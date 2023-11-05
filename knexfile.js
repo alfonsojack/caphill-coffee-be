@@ -17,11 +17,11 @@ module.exports = {
 
   production: {
     client: 'postgresql',
-    user: 'default',
-    password: 'Pj2izrh8VnoB',
-    host: 'ep-crimson-silence-53928070.us-east-1.postgres.vercel-storage.com',
+    user: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD,
+    host: process.env.POSTGRES_HOST,
     port: 5432,
-    database: 'verceldb',
+    database: process.env.POSTGRES_DATABASE,
     pool: {
       min: 2,
       max: 10
