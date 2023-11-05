@@ -29,7 +29,7 @@ app.get('/', (request, response) => {
 //   response.status(200).json(result);
 // });
 
-app.post('/SelectedShop/:id', async (request, response) => {
+app.post('/:id', async (request, response) => {
   const { ratingKey } = request.body;
   const { id } = request.params; 
 
