@@ -9,8 +9,6 @@ const queries = require('./queries')
 if(process.env.NODE_ENV && process.env.NODE_ENV === 'development'){
   app.set('port', 3001)
 }
-if(req.method === 'OPTIONS') { return res.status(200).json(({ body: "OK" })) }
-
 app.use(cors({
   origin: '*',
 }));
