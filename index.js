@@ -11,14 +11,19 @@ app.use(cors())
 
 app.use(express.json());
 
-app.get('/', (request, response) => {
-  response.send('Oh hey cofffe shop');
-});
 
-app.get('/api/v1/debug', async (request, response) => {
-  const result = process.env;
-  response.status(200).json(result);
-});
+app.get('/', (request, response) => {
+  queries.getAll().then(results => response.send(results))
+})
+
+// app.get('/', (request, response) => {
+//   response.send('Oh hey cofffe shop');
+// });
+
+// app.get('/api/v1/debug', async (request, response) => {
+//   const result = process.env;
+//   response.status(200).json(result);
+// });
 
 app.post('/SelectedShop/:id', async (request, response) => {
   const { ratingKey } = request.body;
