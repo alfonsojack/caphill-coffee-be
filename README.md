@@ -1,8 +1,8 @@
 # CAPHILL COFFEE BE
 
-This app is the back-end server for [Caphill-Coffee](https://github.com/alfonsojack/caphill-coffee) 
+This app is the back-end server for [Caphill-Coffee](https://github.com/alfonsojack/caphill-coffee) and you can visit it at [deployed backend server](https://caphill-coffee-be-indol.vercel.app)
 
-## INSTALLATION AND SETUP
+## INSTALLATION AND SETUP FOR LOCAL USE
 1. Clone down this repository
 - In your terminal `git clone <ssh>`
 2. Change into the new directory
@@ -13,7 +13,7 @@ This app is the back-end server for [Caphill-Coffee](https://github.com/alfonsoj
 - run `nodemon server.js`
 
 ## ENDPOINTS
-The server should be running on a deployed vercel server at [deployed backend server](https://caphill-coffee-be-indol.vercel.app)
+The server is running on a deployed vercel server at [deployed backend server](https://caphill-coffee-be-indol.vercel.app)
 
 | Method | Endpoint | Request Body | Sample Response |
 |--------|----------|--------------|-----------------|
