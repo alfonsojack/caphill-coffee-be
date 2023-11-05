@@ -13,7 +13,7 @@ This app is the back-end server for [Caphill-Coffee](https://github.com/alfonsoj
 - run `nodemon server.js`
 
 ## ENDPOINTS
-The server should be running locally at http://localhost:3001.
+The server should be running on a deployed vercel server at [Deployed backend server]caphill-coffee-be-indol.vercel.app
 
 | Method | Endpoint | Request Body | Sample Response |
 |--------|----------|--------------|-----------------|
