@@ -9,7 +9,9 @@ const queries = require('./queries')
 if(process.env.NODE_ENV && process.env.NODE_ENV === 'development'){
   app.set('port', 3001)
 }
-app.use(cors())
+app.use(cors({
+  origin: '*',
+}));
 
 app.use(express.json());
 console.log(config)
