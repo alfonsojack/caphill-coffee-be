@@ -18,7 +18,7 @@ const corsOptions = {
   optionsSucessStatus: 200,
   methods: "GET, POST, OPTIONS",
 };
-// app.use(cors());
+app.use(cors());
 //when you make a request, it will allow them.
 //I will allow get and post methods from localhost 3000.
 //preflight request: request that gets made to the server, but will use the options method. Will allow the response to return a 200.
