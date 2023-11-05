@@ -18,7 +18,6 @@ exports.up = function (knex) {
     table.boolean("wheelchairAccessible");
     table.boolean("contactlessPay");
     table.jsonb("rating");
-
     table.timestamps(true, true);
   });
 };
