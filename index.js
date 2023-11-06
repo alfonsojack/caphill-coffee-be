@@ -10,18 +10,7 @@ if (process.env.NODE_ENV && process.env.NODE_ENV === "development") {
   app.set("port", 3001);
 }
 
-// const corsOptions = {
-//   origin: [
-//     "http://localhost:3000",
-//     "https://caphill-coffee-4vmxl9l43-jack-alfonsos-projects.vercel.app",
-//   ],
-//   optionsSucessStatus: 200,
-//   methods: "GET, POST, OPTIONS",
-// };
 app.use(cors());
-//when you make a request, it will allow them.
-//I will allow get and post methods from localhost 3000.
-//preflight request: request that gets made to the server, but will use the options method. Will allow the response to return a 200.
 
 app.use(express.json());
 console.log(config);
@@ -29,21 +18,11 @@ console.log(config);
 app.options("/*", (_, res) => {
   res.sendStatus(200);
 });
-//add this, wildcard, ALWAYS return 200 when you make an options request
 
 app.get("/", (request, response) => {
   console.log(request);
   queries.getAll().then((results) => response.send(results));
 });
-
-// app.get('/', (request, response) => {
-//   response.send('Oh hey cofffe shop');
-// });
-
-// app.get('/api/v1/debug', async (request, response) => {
-//   const result = process.env;
-//   response.status(200).json(result);
-// });
 
 app.post("/SelectedShop/:id", async (request, response) => {
   const { ratingKey } = request.body;
